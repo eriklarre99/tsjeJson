@@ -1,0 +1,36 @@
+.mesas_links{
+    text-decoration: none !important;
+}
+.mesas_links > div:hover{
+    color: #00c3ff !important;
+    transform: scale(1.1);
+}
+.btn-purple {
+    color: #fff;
+    background-color: #6e0a9c;
+    border-color: #6e018f;
+}
+
+
+.bg-gradient-purple {
+    background-color: #aa4edf;
+    background-image: linear-gradient(180deg, #740391 10%, #5a1064 100%);
+    background-size: cover
+}
+
+.text-purple {
+    color: #c226f1 !important;
+}
+
+.bg-purple {
+    background-color: #a716eb !important;
+}
+
+.border-left-purple {
+    border-left: 0.25rem solid #a716eb !important;
+}
+
+.btnE {
+
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }

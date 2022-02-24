@@ -1,0 +1,87 @@
+<!-- Llamar a cabecera -->
+<%- include('./partials/header') -%>
+
+
+   <!-- Titulo -->
+   <div class="d-sm-flex align-items-center justify-content-between mb-3">
+    <h1 class="h5 font-weight-bold text-uppercase text-gray-450">CARGA ELECTOR</h1>
+    <a class="btn btn-primary mx-2" href="/vistaOperador">Volver atrás </a>
+</div>
+
+<!-- CONTENIDO DEL FORMULARIO Y LA TABLA -->
+<div class="row justify-content-center ">
+    <div class="col-xl-11  col-lg-12 col-md-9">
+        <!--  configurar anchor de la pagina col-xl-11-->
+        <div class="card o-hidden border-0 shadow-lg ">
+            <div class="row ">
+                <div class="col-lg-5">
+                    <div class="p-4">
+                        
+                            <h3 id="titleUser"> Operador: <%= file[0].operador %> </h3>
+                        
+                        <!-- FORMULARIO USUARIO -->
+                        <form class="operador user" id="" method="post" action="/cargaELECTOR">
+
+                            <br><br>
+
+                            <!-- <div class="form-group">
+                                <input type="text" class="form-control form-control-user" name="operador" 
+                                id="operador" placeholder="Nombre Operador" required>
+                            </div> -->
+
+                            <input type="hidden" name="id_operador" value="<%= file[0].id %>">
+                            <input type="hidden" name="nombre" value="<%= file[0].operador %>">
+                            
+
+                            <p>Cargar Elector:</p>
+                            <div class="form-group">
+                                <input type="number" class="form-control form-control-user" name="cedula" 
+                                 placeholder="CI A CARGAR">
+                            </div>
+
+                            <br><br>
+                            
+                            <div class="form-group text-right">
+                                <button type="submit"    class="btn btn-primary ">Guardar</button>
+                                <button type="reset"     class="btn btn-danger " >Limpiar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- TABLA DE LOS INSUMOS -->
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <h3>Electores de <%= file[0].operador %> </h3>
+                        <table id="tablaUsers" class="table table-sprited table-hover table-bordered">
+
+                            <thead class="">
+                                <tr>
+                                  <th scope="col">#CI</th>
+                                  <th scope="col">Nombre & Apellido</th>
+                                  <th scope="col">Local</th>
+                                  <!-- <th scope="col">Inscripcion</th> -->
+                                  <th scope="col">Mesa</th>
+                                  <th scope="col">Orden</th>
+                                  <th scope="col" class="text-center">Actions</th>
+                                </tr>
+                              </thead>
+
+                            <tbody id="tbody">
+
+                               
+                            </tbody>
+                           
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Llamar footer -->
+<%- include('./partials/footer') -%>

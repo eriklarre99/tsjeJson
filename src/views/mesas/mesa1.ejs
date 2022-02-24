@@ -1,0 +1,97 @@
+<!-- Llamar a cabecera -->
+<%- include('../partials/header') -%>
+
+
+
+<!-- INICIO DE PAGINA-->
+<h1 class="h3 mb-2 font-weight-bold text-gray">  MESA 1</h1>
+<!-- <p class="mb-4"> Listado dinámico & profesional </p> -->
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary text-uppercase">
+            Padron Oficial para Internas del 20 de Junio de 2021.
+        </h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead class="">
+                    <tr>
+                        <!-- <th scope="col">Nro</th> -->
+                        <th scope="col">#CI</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Local</th>
+                        <th scope="col">Mesa</th>
+                        <th scope="col">Orden</th>
+                        <th scope="col" class="text-center">Actions</th>
+                    </tr>
+                </thead>
+
+                <tfoot>
+                    <tr>
+                        <!-- <th scope="col">Nro</th> -->
+                        <th scope="col">#CI</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Local</th>
+                        <th scope="col">Mesa</th>
+                        <th scope="col">Orden</th>
+                        <th scope="col" class="text-center">Actions</th>
+                    </tr>
+                </tfoot>
+
+
+                <tbody>
+
+                    <% 
+                      let i=1; 
+                      const separadorMiles = (n) => {
+                        n = String(n).replace(/\D/g, "");
+                        return n === '' ? n : Number(n).toLocaleString();
+                      }
+                    %>
+                    <% if (file.length > 0) { %>
+
+                    <% file.forEach(function(item){ %>
+                        <% if (item.mesa == 1) { %>
+                        <tr>
+                            <!-- <td> <%= i++ %> </td> -->
+                            <th scope="row"> <%= separadorMiles(item.cedula)  %> </th>
+                            <td> <%= item.nombre %> </td>
+                            <td> <%= item.apellido %> </td>
+                            <td> <%= item.local %> </td>
+                            <td class="text-center"> <%= item.mesa %> </td>
+                            <td class="text-center"> <%= item.orden %> </td>
+                            <td class="text-center" style="display: inline-block;">
+
+                                <button class="btn btn-circle btn-secondary btn-sm"> <i class="fas fa-plus-circle "
+                                        role="button"></i> </button>
+                                <button class="btn btn-circle btn-danger btn-sm"> <i class="far fa-file-pdf"
+                                        title="Exportar datos a PDF" role="button"></i> </button>
+
+                            </td>
+                        </tr>
+                        <% } %>
+                    <% }); %>
+
+                    <% } else { %>
+                    <tr class="text-center">
+                        <td class=" py-4" colspan="5"> Sin datos disponibles </td>
+                    </tr>
+                    <% } %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Llamar footer -->
+<%- include('../partials/footer') -%>
